@@ -1,0 +1,6 @@
+@model ShoppingSystem.Models.OrderDetails
+<input asp-for="Id" type="hidden" /><div asp-validation-summary="All" class="text-danger"></div>
+<div class="mb-3"><label asp-for="OrderId" class="form-label"></label><select asp-for="OrderId" asp-items="ViewBag.Orders" class="form-select"><option value="">Оберіть замовлення</option></select><span asp-validation-for="OrderId" class="text-danger"></span></div>
+<div class="mb-3"><label asp-for="ProductId" class="form-label"></label><select asp-for="ProductId" asp-items="ViewBag.Products" class="form-select"><option value="">Оберіть товар</option></select><span asp-validation-for="ProductId" class="text-danger"></span></div>
+<div class="mb-3"><label asp-for="Quantity" class="form-label"></label><input asp-for="Quantity" class="form-control" /><span asp-validation-for="Quantity" class="text-danger"></span></div>
+<button type="submit" class="btn btn-primary">Зберегти</button> <a asp-controller="Orders" asp-action="Details" asp-route-id="@Model.OrderId">До замовлення</a>

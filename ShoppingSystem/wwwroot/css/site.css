@@ -1,0 +1,1 @@
+html { font-size: 16px; } body { color: #243247; background: #fff; } h1 { margin-bottom: 1.4rem; } main { min-height: 75vh; } .form-control, .form-select { max-width: 640px; } td, th { vertical-align: middle; } .field-validation-error, .validation-summary-errors { color: #b02a37; } .input-validation-error { border-color: #b02a37; }

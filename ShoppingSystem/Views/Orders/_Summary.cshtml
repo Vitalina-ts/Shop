@@ -1,0 +1,10 @@
+@model ShoppingSystem.Models.Order
+<dl class="row"><dt class="col-sm-3">Номер</dt><dd class="col-sm-9">@Model.Id</dd><dt class="col-sm-3">Дата</dt><dd class="col-sm-9">@Model.OrderDate.ToString("dd.MM.yyyy")</dd><dt class="col-sm-3">Покупець</dt><dd class="col-sm-9">@Model.Customer.FullName</dd><dt class="col-sm-3">Супермаркет</dt><dd class="col-sm-9">@Model.Supermarket.Name</dd></dl>
+<table class="table"><thead><tr><th>Товар</th><th>Ціна, грн</th><th>Кількість</th><th>Сума, грн</th><th>Дії</th></tr></thead><tbody>
+@foreach (var item in Model.OrderDetails.OrderBy(d => d.Id)) {
+<tr><td>@item.Product.Name</td><td>@item.Product.Price.ToString("F2")</td><td>@item.Quantity</td><td>@((item.Product.Price * item.Quantity).ToString("F2"))</td><td><a asp-controller="OrderDetails" asp-action="Details" asp-route-id="@item.Id">Відомості</a> | <a asp-controller="OrderDetails" asp-action="Edit" asp-route-id="@item.Id">Змінити</a> | <a asp-controller="OrderDetails" asp-action="Delete" asp-route-id="@item.Id">Видалити</a></td></tr>
+}
+</tbody></table>
+@if (Model.OrderDetails.Count == 0) { <p>Замовлення не містить товарів.</p> }
+<p class="fs-4">Загальна вартість: <strong>@Model.OrderDetails.Sum(d => d.Product.Price * d.Quantity).ToString("F2") грн</strong></p>
+<p class="text-muted">Сума обчислюється за поточними цінами товарів. Знижка покупця є довідковою та не застосовується до формули лабораторної.</p>

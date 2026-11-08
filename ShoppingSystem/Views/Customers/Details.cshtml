@@ -1,0 +1,5 @@
+@model ShoppingSystem.Models.Customer
+<h1>Відомості</h1><dl><dt>ID</dt><dd>@Model.Id</dd><dt>@Html.DisplayNameFor(m => m.FirstName)</dt><dd>@Html.DisplayFor(m => m.FirstName)</dd>
+<dt>@Html.DisplayNameFor(m => m.LastName)</dt><dd>@Html.DisplayFor(m => m.LastName)</dd>
+<dt>@Html.DisplayNameFor(m => m.Address)</dt><dd>@Html.DisplayFor(m => m.Address)</dd>
+<dt>@Html.DisplayNameFor(m => m.Discount)</dt><dd>@Html.DisplayFor(m => m.Discount)</dd></dl><a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Редагувати</a> <a asp-action="Index">До списку</a>

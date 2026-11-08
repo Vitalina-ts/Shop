@@ -1,0 +1,7 @@
+@model ShoppingSystem.ViewModels.SupermarketListViewModel
+@{ var items = Model.Supermarkets; }
+<h1>Супермаркети</h1><a asp-action="Create" class="btn btn-success mb-3">Створити</a><div class="table-responsive"><table class="table table-striped"><thead><tr><th>ID</th><th>Назва</th><th>Адреса</th><th>Дії</th></tr></thead><tbody>@foreach (var item in items) { <tr><td>@item.Id</td><td>@item.Name</td><td>@item.Address</td><td><a asp-action="Edit" asp-route-id="@item.Id">Редагувати</a> | <a asp-action="Details" asp-route-id="@item.Id">Відомості</a> | <a asp-action="Delete" asp-route-id="@item.Id">Видалити</a></td></tr> }</tbody></table></div>@if (!items.Any()) { <p>Записів не знайдено.</p> }<nav class="d-flex gap-3 align-items-center" aria-label="Сторінки">
+@if (Model.Page > 1) { <a class="btn btn-outline-primary" asp-action="Index" asp-route-page="@(Model.Page - 1)">Попередня</a> } else { <span class="btn btn-outline-secondary disabled" aria-disabled="true">Попередня</span> }
+<span>Сторінка @Model.Page з @Model.TotalPages (записів: @Model.TotalCount)</span>
+@if (Model.Page < Model.TotalPages) { <a class="btn btn-outline-primary" asp-action="Index" asp-route-page="@(Model.Page + 1)">Наступна</a> } else { <span class="btn btn-outline-secondary disabled" aria-disabled="true">Наступна</span> }
+</nav>

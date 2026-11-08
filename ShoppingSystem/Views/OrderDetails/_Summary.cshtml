@@ -1,0 +1,2 @@
+@model ShoppingSystem.Models.OrderDetails
+<dl><dt>Позиція</dt><dd>@Model.Id</dd><dt>Замовлення</dt><dd>№@Model.OrderId — @Model.Order.Customer.FullName</dd><dt>Товар</dt><dd>@Model.Product.Name</dd><dt>Ціна, грн</dt><dd>@Model.Product.Price.ToString("F2")</dd><dt>Кількість</dt><dd>@Model.Quantity</dd><dt>Сума, грн</dt><dd>@((Model.Product.Price * Model.Quantity).ToString("F2"))</dd></dl>

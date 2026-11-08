@@ -1,0 +1,2 @@
+@model ShoppingSystem.Models.OrderDetails
+<h1>Позиція замовлення</h1><partial name="_Summary" model="Model" /><a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Редагувати</a> <a asp-controller="Orders" asp-action="Details" asp-route-id="@Model.OrderId">До замовлення</a>

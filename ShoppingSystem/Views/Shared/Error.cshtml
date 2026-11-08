@@ -1,0 +1,6 @@
+@model ErrorViewModel
+@{ ViewData["Title"] = "Помилка"; }
+<h1 class="text-danger">Не вдалося виконати запит</h1>
+<p>Оновіть сторінку та повторіть дію. Якщо помилка повторюється, перевірте підключення до SQL Server і журнал застосунку.</p>
+@if (Model.ShowRequestId) { <p>Ідентифікатор запиту: <code>@Model.RequestId</code></p> }
+<a asp-controller="Home" asp-action="Index" class="btn btn-primary">На головну</a>

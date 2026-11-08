@@ -1,0 +1,5 @@
+@model IEnumerable<ShoppingSystem.Models.OrderDetails>
+<h1>Позиції замовлень</h1><a asp-action="Create" class="btn btn-success">Додати позицію</a>
+<table class="table"><thead><tr><th>Замовлення</th><th>Покупець</th><th>Товар</th><th>Кількість</th><th>Дії</th></tr></thead><tbody>
+@foreach (var item in Model) { <tr><td><a asp-controller="Orders" asp-action="Details" asp-route-id="@item.OrderId">№@item.OrderId</a></td><td>@item.Order.Customer.FullName</td><td>@item.Product.Name</td><td>@item.Quantity</td><td><a asp-action="Details" asp-route-id="@item.Id">Відомості</a> | <a asp-action="Edit" asp-route-id="@item.Id">Редагувати</a> | <a asp-action="Delete" asp-route-id="@item.Id">Видалити</a></td></tr> }
+</tbody></table>

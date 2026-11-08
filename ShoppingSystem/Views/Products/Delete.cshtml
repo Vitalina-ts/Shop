@@ -1,0 +1,3 @@
+@model ShoppingSystem.Models.Product
+<h1>Видалення</h1><p>Видалити цей запис?</p><dl><dt>ID</dt><dd>@Model.Id</dd><dt>@Html.DisplayNameFor(m => m.Name)</dt><dd>@Html.DisplayFor(m => m.Name)</dd>
+<dt>@Html.DisplayNameFor(m => m.Price)</dt><dd>@Html.DisplayFor(m => m.Price)</dd></dl><form asp-action="Delete" method="post"><input type="hidden" asp-for="Id" /><div asp-validation-summary="All" class="text-danger"></div><button class="btn btn-danger">Видалити</button> <a asp-action="Index">Скасувати</a></form>

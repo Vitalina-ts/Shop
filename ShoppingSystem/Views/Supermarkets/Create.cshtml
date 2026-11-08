@@ -1,0 +1,3 @@
+@model ShoppingSystem.Models.Supermarket
+<h1>Супермаркети — Створення</h1><form asp-action="Create" method="post"><div asp-validation-summary="All" class="text-danger"></div><input type="hidden" asp-for="Id" /><partial name="_Fields" model="Model" /><button class="btn btn-primary" type="submit">Зберегти</button> <a asp-action="Index" class="btn btn-secondary">До списку</a></form>
+@section Scripts { <partial name="_ValidationScriptsPartial" /> }

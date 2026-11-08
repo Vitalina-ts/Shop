@@ -1,0 +1,6 @@
+@model IEnumerable<ShoppingSystem.Models.Order>
+<h1>Замовлення</h1><a asp-action="Create" class="btn btn-success mb-3">Створити замовлення</a>
+<table class="table table-striped"><thead><tr><th>ID</th><th>Дата</th><th>Покупець</th><th>Супермаркет</th><th>Дії</th></tr></thead><tbody>
+@foreach (var item in Model) { <tr><td>@item.Id</td><td>@item.OrderDate.ToString("dd.MM.yyyy")</td><td>@item.Customer.FullName</td><td>@item.Supermarket.Name</td><td><a asp-action="Edit" asp-route-id="@item.Id">Редагувати</a> | <a asp-action="Details" asp-route-id="@item.Id">Відомості</a> | <a asp-action="Delete" asp-route-id="@item.Id">Видалити</a></td></tr> }
+</tbody></table>
+@if (!Model.Any()) { <p>Замовлень немає.</p> }
